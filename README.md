@@ -22,7 +22,6 @@ Ensure your Windows system has the following software installed:
 2. During the installation, select components: **Apache**, **MySQL**, and **PHP**.
 3. Start the XAMPP Control Panel and start **Apache** and **MySQL** services.
 
-![Step 1 Screenshot](images/step1.png)
 
 ---
 
@@ -30,8 +29,6 @@ Ensure your Windows system has the following software installed:
 
 1. Visit the [osTicket Releases Page](https://github.com/osTicket/osTicket/releases) and download the latest `.zip` file.
 2. Extract the osTicket folder into `C:\xampp\htdocs`.
-
-![Step 2 Screenshot](images/step2.png)
 
 ---
 
@@ -47,8 +44,6 @@ Ensure your Windows system has the following software installed:
 ### Steps:
 - Navigate to **User Accounts** in phpMyAdmin.
 - Add a new user with the credentials and grant permissions to the `osticket` database.
-
-![Step 3 Screenshot](images/step3.png)
 
 ---
 
