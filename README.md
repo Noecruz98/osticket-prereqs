@@ -68,3 +68,15 @@ Ensure your Windows system has the following software installed:
     </Directory>
 </VirtualHost>
 
+---
+
+## Step 5: Complete osTicket Installation
+
+1. Open your browser and navigate to `http://localhost`.
+2. Follow the osTicket setup wizard:
+   - Provide database credentials:
+     - **Database Name**: `osticket`
+     - **Username**: `osticketuser`
+     - **Password**: `yourpassword`
+   - Configure the system settings and admin account.
+3. Complete
