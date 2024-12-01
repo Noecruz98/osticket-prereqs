@@ -5,73 +5,47 @@
 
 # osTicket Installation Guide (Windows)
 
-This repository provides a detailed step-by-step guide for installing osTicket on a Windows environment.
+This guide provides a simple, step-by-step process to install osTicket on a Windows environment.
 
 ---
 
-## Step 1: Install Prerequisites
-
-Ensure your Windows system has the following software installed:
-
-1. **Web Server**: XAMPP (includes Apache, PHP, and MySQL)
-   - [Download XAMPP](https://www.apachefriends.org/download.html)
-2. **osTicket**: Latest version from the official website.
-
-### Steps:
-1. Download and install XAMPP.
-2. During the installation, select components: **Apache**, **MySQL**, and **PHP**.
-3. Start the XAMPP Control Panel and start **Apache** and **MySQL** services.
-
+## Step 1: Install Required Software
+1. Install the following prerequisites:
+   - **XAMPP**: Download and install from [https://www.apachefriends.org](https://www.apachefriends.org).
+     - Enable Apache and MySQL in the XAMPP Control Panel.
+   - **osTicket**: Download the latest version from [https://osticket.com/download](https://osticket.com/download).
+2. Extract the osTicket files into the `htdocs` folder in your XAMPP installation directory.
 
 ---
 
-## Step 2: Download osTicket
-
-1. Visit the [osTicket Releases Page](https://github.com/osTicket/osTicket/releases) and download the latest `.zip` file.
-2. Extract the osTicket folder into `C:\xampp\htdocs`.
-
----
-
-## Step 3: Configure MySQL Database
-
-1. Open the XAMPP Control Panel and click **Admin** next to MySQL to open phpMyAdmin.
+## Step 2: Configure MySQL Database
+1. Open **phpMyAdmin** (accessible via XAMPP Control Panel).
 2. Create a new database:
-   - Name: `osticket`
-3. Create a new user and grant it privileges:
-   - Username: `osticketuser`
-   - Password: `yourpassword`
-
-### Steps:
-- Navigate to **User Accounts** in phpMyAdmin.
-- Add a new user with the credentials and grant permissions to the `osticket` database.
+   - **Database Name**: `osticket`.
+3. Create a user and assign privileges to the database:
+   - Assign **ALL PRIVILEGES** to the new user.
 
 ---
 
-## Step 4: Configure Apache for osTicket
-
-1. Edit the Apache configuration file:
-   - File location: `C:\xampp\apache\conf\extra\httpd-vhosts.conf`
-2. Add the following VirtualHost configuration:
-
-```apache
-<VirtualHost *:80>
-    DocumentRoot "C:/xampp/htdocs/osTicket/upload"
-    ServerName localhost
-    <Directory "C:/xampp/htdocs/osTicket/upload">
-        AllowOverride All
-        Require all granted
-    </Directory>
-</VirtualHost>
+## Step 3: Configure osTicket Files
+1. Navigate to the `upload` folder where you extracted osTicket.
+2. Rename `sample.config.php` to `config.php`.
+3. Move the `config.php` file to the `/include` directory.
 
 ---
 
-## Step 5: Complete osTicket Installation
+## Step 4: Run the Installer
+1. Open your browser and go to `http://localhost/upload/` or your server’s IP address.
+2. Follow the installation wizard:
+   - Enter the database credentials (from Step 2).
+   - Configure your admin account and helpdesk settings.
+3. Complete the installation.
 
-1. Open your browser and navigate to `http://localhost`.
-2. Follow the osTicket setup wizard:
-   - Provide database credentials:
-     - **Database Name**: `osticket`
-     - **Username**: `osticketuser`
-     - **Password**: `yourpassword`
-   - Configure the system settings and admin account.
-3. Complete
+---
+
+## Step 5: Finalize Installation
+1. Delete the `setup` folder in the osTicket directory to secure your installation.
+2. Log in to the Admin Panel at `http://localhost/upload/scp` using the admin credentials created during installation.
+3. Configure your helpdesk as needed.
+
+
